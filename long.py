@@ -5,7 +5,7 @@ IN PROGRESS
 
 from Bio import SeqIO
 import sys
-file_input = r"C:\Users\Jon\Downloads\rosalind_long.txt"
+file_input = r"test"
 
 def long(fname):
     records = list(SeqIO.parse(fname,"fasta"))
