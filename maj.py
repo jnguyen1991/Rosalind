@@ -21,6 +21,7 @@ if __name__== "__main__":
             for item in lst:
                 if m == None or counter == 0:
                     m = item
+                    counter = 1
                     continue
                 if m == item:
                     counter += 1
