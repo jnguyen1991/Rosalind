@@ -25,10 +25,10 @@ def lgis(n, inc=True):
             if i > max(ends):
                 lst.append(lst[-1]+[i])
                 continue
-            for j in range(len(ends)-1,-1,-1):
-                if ends[j] > i:
+            for j in range(len(ends)-1,-1,-1):    
+                if ends[j] > i and ends[j-1] < i:
                     lst[j] = lst[j][:-1] + [i]
-                    continue
+                    break
         else:
             if i > max(ends):
                 lst[0] = [i]
@@ -37,10 +37,10 @@ def lgis(n, inc=True):
                 lst.append(lst[-1]+[i])
                 continue
             for j in range(len(ends)-1,-1,-1):
-                if ends[j] < i:
+                if ends[j] < i and ends[j-1] > i:
                     lst[j] = lst[j][:-1] + [i]
-                    continue
-        print lst
+                    break
+        
     return lst[-1]
             
 
@@ -56,7 +56,7 @@ finput = r"C:\Users\jnguyen3\Downloads\rosalind_lgis (1).txt"
 output = readFiles(finput)
 #print output
 
-output = [5,1,4,2,3]
+output = [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
 a=lgis(output, inc=True)    
 print " ".join([str(x) for x in a])
 b=lgis(output, inc=False)
